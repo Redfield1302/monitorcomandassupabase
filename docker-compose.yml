@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  monitor-comandas:
+    build: .
+    container_name: monitor_comandas_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000" # Mapeia a porta 3000 do host para a porta 3000 do container
+    env_file:
+      - .env # Carrega as variáveis de ambiente do arquivo .env
+    volumes:
+      # Em desenvolvimento, você pode montar o código para live reload (opcional)
+      # - .:/app
+      # - /app/node_modules # Evita que node_modules local sobrescreva o do container
+      # Em produção, geralmente não se monta o código fonte
+      - ./logs:/app/logs # Monta um volume para logs (se o app gerar logs em arquivo)
+    networks:
+      - monitor-net
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - NODE_ENV=${NODE_ENV:-production}
+      - API_KEY=${API_KEY}
+
+  redis:
+    image: redis:alpine
+    container_name: monitor_comandas_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes ${REDIS_PASSWORD:+--requirepass ${REDIS_PASSWORD}}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local

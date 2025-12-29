@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Comandas</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Incluir biblioteca de carrossel (Swiper.js) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍕</text></svg>">
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta name="description" content="Monitor de Comandas para Pizzaria - Visualize pedidos em tempo real">
+    <meta name="theme-color" content="#e74c3c">
+</head>
+<body>
+    <header>
+        <h1>🍕 Monitor de Comandas v2.0</h1>
+    </header>
+
+    <main>
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="comandas-wrapper">
+                <!-- As comandas serão inseridas aqui pelo JavaScript -->
+            </div>
+            <!-- Adicionar paginação -->
+            <div class="swiper-pagination"></div>
+            <!-- Adicionar botões de navegação -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div id="sem-pedidos" class="sem-pedidos-mensagem" style="display: none;">
+            Aguardando novos pedidos...
+        </div>
+    </main>
+
+    <footer>
+        <p>Atualizado em: <span id="timestamp-atualizacao">--:--:--</span></p>
+        <!-- Controles administrativos serão adicionados aqui via JavaScript -->
+    </footer>
+
+    <!-- Incluir biblioteca de carrossel (Swiper.js) -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Som de notificação -->
+    <audio id="som-notificacao" preload="auto" src="data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTguMjkuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

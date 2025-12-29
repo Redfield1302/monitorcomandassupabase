@@ -1,0 +1,415 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #e74c3c; /* Vermelho Pizzaria */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background-color: #34495e; /* Azul Escuro */
+    color: #ecf0f1;
+    text-align: center;
+    padding: 0.8rem 0;
+    font-size: 0.8rem;
+    margin-top: auto; /* Empurra o rodapé para baixo */
+    position: relative; /* Para posicionamento dos controles */
+}
+
+/* Estilos do Carrossel (Swiper) */
+.swiper-container {
+    width: 90%;
+    max-width: 1200px; /* Limite máximo para telas grandes */
+    height: auto; /* Altura ajustável */
+    padding: 20px 0; /* Espaçamento interno */
+}
+
+.swiper-slide {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Garante que o conteúdo não transborde */
+    min-height: 350px; /* Altura mínima para consistência */
+}
+
+.swiper-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos da Comanda */
+.comanda {
+    font-size: 0.95rem;
+    position: relative; /* Para posicionamento do badge */
+}
+
+.comanda h2 {
+    color: #e74c3c;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.comanda p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.comanda strong {
+    color: #34495e;
+    margin-right: 5px;
+}
+
+.comanda .detalhes-pizza {
+    background-color: #f9f9f9;
+    border-left: 4px solid #e74c3c;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.comanda .endereco-container {
+    position: relative;
+    margin: 15px 0;
+}
+
+.comanda .endereco {
+    font-style: italic;
+    color: #555;
+    padding-right: 30px; /* Espaço para o ícone */
+}
+
+.comanda .contato-cliente {
+    position: relative;
+    margin: 10px 0;
+}
+
+.comanda .pagamento {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #27ae60; /* Verde para pagamento */
+}
+
+.comanda .timestamp {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.comanda .observacoes {
+    background-color: #fff8e1;
+    border-left: 4px solid #ffc107;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+/* Botões de ação */
+.acoes-comanda {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.btn-finalizar, .btn-deletar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.btn-finalizar {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-finalizar:hover {
+    background-color: #219955;
+}
+
+.btn-deletar {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-deletar:hover {
+    background-color: #c0392b;
+}
+
+.btn-finalizar i, .btn-deletar i {
+    margin-right: 5px;
+}
+
+/* Botões de atalho */
+.btn-whatsapp, .btn-maps {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    margin-left: 8px;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+}
+
+.btn-maps {
+    background-color: #4285F4;
+}
+
+.btn-whatsapp:hover, .btn-maps:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para comandas novas */
+.comanda-nova {
+    animation: pulsar 2s infinite;
+    border-left: 5px solid #e74c3c;
+}
+
+.novo-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: girar 2s infinite;
+}
+
+/* Animações */
+@keyframes pulsar {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+@keyframes girar {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+/* Botões de Navegação Swiper */
+.swiper-button-next, .swiper-button-prev {
+    color: #e74c3c !important; /* Cor dos botões */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+/* Paginação Swiper */
+.swiper-pagination-bullet {
+    background-color: #bdc3c7 !important;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #e74c3c !important;
+    opacity: 1;
+}
+
+/* Mensagem "Sem Pedidos" */
+.sem-pedidos-mensagem {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Controles administrativos */
+.controles-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-controle {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.btn-controle:hover {
+    background-color: #2980b9;
+}
+
+/* Status do servidor */
+.status-container {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.status-online {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.status-offline {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .swiper-container {
+        width: 95%;
+    }
+    .swiper-slide {
+        padding: 20px;
+        min-height: 320px;
+    }
+    .comanda h2 {
+        font-size: 1.2rem;
+    }
+    .comanda p {
+        font-size: 0.9rem;
+    }
+    .swiper-button-next, .swiper-button-prev {
+        display: none; /* Oculta botões em telas menores, usa swipe */
+    }
+    .controles-admin {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .acoes-comanda {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-finalizar, .btn-deletar {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+    .swiper-slide {
+        padding: 15px;
+        min-height: 300px;
+    }
+    .comanda h2 {
+        font-size: 1.1rem;
+    }
+    .comanda p {
+        font-size: 0.85rem;
+    }
+    .sem-pedidos-mensagem {
+        font-size: 1.2rem;
+        padding: 30px 15px;
+    }
+}
+
+/* Tema escuro (ativado automaticamente à noite) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+    }
+    
+    .swiper-slide {
+        background-color: #34495e;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .comanda h2 {
+        color: #e74c3c;
+        border-bottom-color: #4a6278;
+    }
+    
+    .comanda strong {
+        color: #3498db;
+    }
+    
+    .comanda .detalhes-pizza {
+        background-color: #2c3e50;
+    }
+    
+    .comanda .endereco {
+        color: #bdc3c7;
+    }
+    
+    .comanda .observacoes {
+        background-color: #3c3520;
+        border-left-color: #ffc107;
+    }
+    
+    .sem-pedidos-mensagem {
+        background-color: rgba(52, 73, 94, 0.8);
+        color: #ecf0f1;
+    }
+}
