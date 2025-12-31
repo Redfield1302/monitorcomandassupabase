@@ -6,7 +6,7 @@ const crypto = require("crypto");
 // const { promisify } = require("util"); // Removido o Redis
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 
 // --- Configuração do Banco de Dados (PostgreSQL/Supabase) ---
 // A configuração está em db.js. Vamos apenas garantir que a tabela exista.
@@ -15,7 +15,7 @@ setupDatabase();
 // --- Middleware ---
 // Configuração CORS mais restritiva
 const corsOptions = {
-    origin: process.env.DATABASE_URL === 'production' 
+    origin: process.env.NODE_ENV === 'production' 
         ? ['https://seu-dominio.com', 'https://www.seu-dominio.com'] 
         : '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -407,7 +407,7 @@ app.use((err, req, res, next) => {
 
 // --- Inicialização ---
 // A função setupDatabase() é chamada no início para garantir a tabela.
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
     console.log(`Servidor do Monitor de Comandas v2.0 rodando em http://localhost:${port}`);
     console.log(`Acesse o monitor em http://localhost:${port}/index.html`);
 });

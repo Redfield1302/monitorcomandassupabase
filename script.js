@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Configuração da URL do backend - ajusta automaticamente para produção ou desenvolvimento
     const backendUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-        ? "http://localhost:3000"
+        ? "http://localhost:3002"
         : window.location.origin; // Em produção, usa a mesma origem
     
     const comandasWrapper = document.getElementById("comandas-wrapper");

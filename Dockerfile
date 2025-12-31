@@ -25,7 +25,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app ./
 
 # Exponha a porta que a aplicação usará
-EXPOSE 3000
+EXPOSE 3002
 
 # Defina o comando para iniciar a aplicação
 CMD [ "node", "server.js" ]
